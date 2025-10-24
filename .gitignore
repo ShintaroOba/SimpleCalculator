@@ -1,0 +1,68 @@
+# Java
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.sar
+hs_err_pid*
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Maven (in case someone uses it)
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.project
+.classpath
+.settings/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Environment variables
+.env*
+
+# Temporary files
+*.tmp
+*.temp
+/tmp/
+temp/
+
+# Application specific
+bin/
+out/
+.gradle-cache/
+
+# Large files
+*.zip
+gradle-*/
