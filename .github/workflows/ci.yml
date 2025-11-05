@@ -52,8 +52,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
-          path: build/reports/jacoco/test/html/
-
+          path: build/reports/jacoco/test/html/      
       - name: Publish test report
         if: always()
         uses: dorny/test-reporter@v1
@@ -64,7 +63,7 @@ jobs:
           fail-on-error: true
 
       - name: Build JAR
-        run: ./gradlew shadowJar
+        run: ./gradlew jar
 
       - name: Upload JAR artifact
         uses: actions/upload-artifact@v4
