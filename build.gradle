@@ -6,7 +6,8 @@ plugins {
 
 group = 'com.calculator'
 version = '1.0.0'
-java.sourceCompatibility = JavaVersion.VERSION_21  // Java 25 not yet supported by Gradle, using 21 for now
+java.sourceCompatibility = JavaVersion.VERSION_21
+java.targetCompatibility = JavaVersion.VERSION_21
 
 repositories {
     mavenCentral()
