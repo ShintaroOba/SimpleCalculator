@@ -4,6 +4,12 @@ on:
   push:
     branches: [main, develop, feature/oba]
 
+# dorny/test-reporterに必要な権限追加
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
