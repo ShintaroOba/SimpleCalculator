@@ -2,7 +2,7 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [main, develop, feature/oba]
+    branches: [main, develop, feature/*]
 
 # dorny/test-reporterに必要な権限追加
 permissions:
@@ -41,20 +41,20 @@ jobs:
         continue-on-error: true
 
       - name: Upload test results
-        if: always()
+        if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
           name: test-results
           path: build/test-results/test/*.xml
 
       - name: Upload coverage report
-        if: always()
+        if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
           path: build/reports/jacoco/test/html/
       - name: Publish test report
-        if: always()
+        if: ${{ always() }}
         uses: dorny/test-reporter@v1
         with:
           name: JUnit Test Results
