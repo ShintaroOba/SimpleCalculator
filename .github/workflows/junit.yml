@@ -1,8 +1,8 @@
-name: 
+name: Java CI with Gradle
 
 on:
   push:
-    branches: 
+    branches: [main, develop, feature/*]
 
 # dorny/test-reporterに必要な権限追加
 permissions:
@@ -16,9 +16,9 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: 
+        uses: actions/checkout@v4
       - name: Set up JDK 21
-        uses: 
+        uses: actions/setup-java@v4
         with:
           java-version: "21"
           distribution: "temurin"
@@ -30,43 +30,5 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
 
-      - name: 
-        run: 
-
-      - name: Generate JaCoCo coverage report
-        run: 
-
-      - name: Verify coverage
-        run: ./gradlew jacocoTestCoverageVerification
-        continue-on-error: true
-
-      - name: Upload test results
-        if: 
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-results
-          path: 
-
-      - name: Upload coverage report
-        if: 
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage-report
-          path: build/reports/jacoco/test/html/
-      - name: Publish test report
-        if: 
-        uses: dorny/test-reporter@v1
-        with:
-          name: JUnit Test Results
-          path: build/test-results/test/*.xml
-          reporter: java-junit
-          fail-on-error: true
-
-      - name: Build JAR
-        run: 
-
-      - name: Upload JAR artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: calculator-jar
-          path: 
+      - name: Run tests
+        run: ./gradlew test
